@@ -17,7 +17,7 @@ GPIO.setmode(GPIO.BCM)  # Configuration du mode de numérotation GPIO
 Cette ligne spécifie le mode d'identification des broches GPIO sur le Raspberry Pi.
 
 ##Les deux modes disponibles
-| Mode GPIO       | Type de numérotation | Exemple     | Avantages                     |
-|-----------------|-----------------------|------------------|-------------------------------|
-| `GPIO.BCM`      | Logique (Broadcom)    | GPIO17, GPIO18   | Compatible tous modèles RPi    |
-| `GPIO.BOARD`    | Physique (broches)    | Broche 11 = GPIO17 | Visuel facile (câblage)       |
+| Mode GPIO       | Type de numérotation | Exemple            | Avantages                     |
+|-----------------|----------------------|--------------------|-------------------------------|
+| `GPIO.BCM`      | Logique (Broadcom)   | GPIO17, GPIO18     |  Compatible tous modèles RPi  |
+| `GPIO.BOARD`    | Physique (broches)   | Broche 11 = GPIO17 | Visuel facile (câblage)       |
