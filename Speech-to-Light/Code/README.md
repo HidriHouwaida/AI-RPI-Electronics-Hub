@@ -10,7 +10,7 @@
 import RPi.GPIO as GPIO  # Pour contrôler les GPIO
 import time              # Pour les pauses
 ```
-#Explication de GPIO.setmode(GPIO.BCM)
+#### Explication de GPIO.setmode(GPIO.BCM)
 ```
 GPIO.setmode(GPIO.BCM)  # Configuration du mode de numérotation GPIO
 ```
