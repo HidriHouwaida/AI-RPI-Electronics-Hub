@@ -36,9 +36,8 @@ while True:
 ```
 ##### Fonctionnement Pas-à-Pas
 | Ligne de Code                  | Action	                                                        |Durée       |
-|--------------------------------|----------------------------------------------------------------|------------|
+|--------------------------------|------------------------------------------------------------------|------------|
 | GPIO.output(LED_PIN, GPIO.HIGH)| Envoie un signal 3.3V (niveau logique HIGH) à la broche GPIO17	| Instantané |
 | time.sleep(1)	Maintient la LED | allumée pendant 1 seconde	                                    | 1 seconde  |
 | GPIO.output(LED_PIN, GPIO.LOW) | Coupe le signal (0V / niveau logique LOW)	                    | Instantané |
 | time.sleep(1)	                 | Maintient la LED éteinte pendant 1 seconde	                    |  1 seconde |
-|--------------------------------|----------------------------------------------------------------|------------|
