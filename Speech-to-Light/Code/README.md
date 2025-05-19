@@ -14,7 +14,7 @@ import time              # Pour les pauses
 ```python
 GPIO.setmode(GPIO.BCM)  # Configuration du mode de numérotation GPIO
 ```
-##Fonction
+#### Fonction
 Cette ligne spécifie le mode d'identification des broches GPIO sur le Raspberry Pi.
 
 ##Les deux modes disponibles
