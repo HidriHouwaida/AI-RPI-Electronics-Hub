@@ -48,8 +48,88 @@ while True:
 ```python
 
 # Importation des bibliothèques
-import speech_recognition as sr
-import RPi.GPIO as GPIO
-from googletrans import Translator
-import time
+import speech_recognition as sr  # pour la conversion de la parole (voix) en texte
+import RPi.GPIO as GPIO          # Pour contrôler les GPIO
+from googletrans import Translator # pour la traduction automatique de texte
+import time                      # pour les pauses
+
+**Fonction translate_to_anglais(text)**
+**Rôle :**
+Traduit un texte depuis n'importe quelle langue vers l'anglais et retourne le résultat en minuscules.
+
+**Fonctionnement :**
+
+Utilise le service Google Translate via la bibliothèque googletrans
+
+Prend en entrée un texte (text) dans n'importe quelle langue
+
+Tente de le traduire en anglais (dest='en')
+
+En cas de succès :
+
+Retourne la traduction en minuscules (normalisation)
+
+En cas d'échec (erreur de connexion, etc.) :
+
+Affiche l'erreur dans la console
+
+Retourne le texte original en minuscules (degradé élégant)
+
+**Fonction process_command(command_en)**
+**Rôle :**
+Cette fonction contrôle une LED GPIO en fonction d'une commande vocale traduite en anglais.
+
+**Fonctionnement :**
+
+Elle reçoit une commande en anglais (command_en) provenant d'un système de reconnaissance vocale
+
+Elle vérifie d'abord si la commande existe (n'est pas vide)
+
+Elle compare la commande avec deux actions possibles :
+
+Si la commande contient "light up" → allume la LED (GPIO.HIGH)
+
+Si la commande contient "light off" → éteint la LED (GPIO.LOW)
+
+Retourne True si la commande a été reconnue et exécutée, False sinon
+
+**Fonction listen_and_translate()**
+**Rôle : **
+Capture une commande vocale via le microphone, la reconnaît et la traduit en français.
+
+**Fonctionnement :**
+
+Initialisation :
+
+Ouvre le microphone comme source audio
+
+Affiche une invite pour l'utilisateur
+
+Traitement audio :
+
+Ajuste le niveau du bruit ambiant
+
+Écoute l'entrée microphone avec un timeout de 5 secondes
+
+Reconnaissance vocale :
+
+Utilise l'API Google Speech Recognition
+
+Accepte toutes les langues (language=None)
+
+Affiche le texte reconnu
+
+Traduction :
+
+Envoie le texte à la fonction translate_to_french()
+
+Retourne le résultat traduit
+Gestion d'erreurs :
+
+Commande incomprise → Message "Je n'ai pas compris"
+
+Erreur API → Affiche le détail technique
+
+Erreur générale → Message d'erreur inattendue
 ```
+
