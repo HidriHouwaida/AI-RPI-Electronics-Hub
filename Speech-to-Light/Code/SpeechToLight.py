@@ -9,32 +9,32 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(LED_PIN, GPIO.OUT)
 
 # Initialisation des services
-recognizer = sr.Recognizer()
-translator = Translator()
+recognizer = sr.Recognizer() # création d'un objet de la classe Recognizer en utilisant un constructeur vide
+translator = Translator()    # création d'un objet de la classe Translator en utilisant un constructeur vide 
 
-def translate_to_french(text):
-    """Traduit le texte en francais"""
+def translate_to_anglais(text):
+    """Traduit le texte en anglais """
     try:
-        translated = translator.translate(text, dest='fr')
-        return translated.text.lower()
+        translated = translator.translate(text, dest='en') # utilisation de la fonction transalte de la classe Tranlator pour la traduction de texte vers l'anglais 
+        return translated.text.lower()                     # pour retourner le texte traduite en miniscules 
     except Exception as e:
         print(f"Erreur de traduction: {e}")
-        return text.lower()
+        return text.lower()                                # pour retourner le texte initiale en miniscules 
 
-def process_command(command_fr):
-    """Traite la commande traduite en francais"""
-    if not command_fr:
+def process_command(command_en):
+    """Traite la commande traduite en anglais"""
+    if not command_en:
         return False
     
-    print(f"Commande traduite: {command_fr}")
+    print(f"Commande traduite: {command_en}")
     
-    if "allumer" in command_fr or "allume" in command_fr:
+    if "light up" in command_en :
         GPIO.output(LED_PIN, GPIO.HIGH)
-        print("LED allumee")
+        print("Led On ")
         return True
-    elif "eteindre" in command_fr or "eteins" in command_fr:
+    elif "light off" in command_en :
         GPIO.output(LED_PIN, GPIO.LOW)
-        print("LED eteinte")
+        print("LED Off")
         return True
     
     return False
