@@ -41,3 +41,15 @@ while True:
 | time.sleep(1)	Maintient la LED | allumée pendant 1 seconde	                                    | 1 seconde  |
 | GPIO.output(LED_PIN, GPIO.LOW) | Coupe le signal (0V / niveau logique LOW)	                    | Instantané |
 | time.sleep(1)	                 | Maintient la LED éteinte pendant 1 seconde	                    |  1 seconde |
+## Fichier : `SpeechToLight.py`
+
+### Structure du Code
+
+```python
+
+# Importation des bibliothèques
+import speech_recognition as sr
+import RPi.GPIO as GPIO
+from googletrans import Translator
+import time
+```
