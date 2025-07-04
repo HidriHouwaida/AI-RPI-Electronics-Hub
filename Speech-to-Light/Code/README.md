@@ -63,40 +63,37 @@ Traduit un texte depuis n'importe quelle langue vers l'anglais et retourne le r�
 * Utilise le service Google Translate via la bibliothèque googletrans  
 * Prend en entrée un texte (`text`) dans n'importe quelle langue  
 * Tente de le traduire en anglais (`dest='en'`)  
+**En cas de succès** 
+  *Retourne la traduction en minuscules 
+**En cas d'échec  ** 
+  *Affiche l'erreur dans la console
+  *Retourne le texte original en minuscules
+  
+#### Explication de la fonction process_command(command_en)
 
-En cas de succès :
+##### Rôle
+Cette fonction contrôle le LED en fonction de la  commande vocale traduite en anglais.
 
-Retourne la traduction en minuscules (normalisation)
+##### Fonctionnement
 
-En cas d'échec (erreur de connexion, etc.) :
+ *Elle reçoit la commande en anglais (command_en) 
 
-Affiche l'erreur dans la console
+ *Elle vérifie d'abord si la commande existe (n'est pas vide)
 
-Retourne le texte original en minuscules (degradé élégant)
+ *Elle compare la commande avec deux actions possibles :
 
-**Fonction process_command(command_en)**
-**Rôle :**
-Cette fonction contrôle une LED GPIO en fonction d'une commande vocale traduite en anglais.
+   *Si la commande contient "light up" → allume la LED (GPIO.HIGH)
 
-**Fonctionnement :**
+   *Si la commande contient "light off" → éteint la LED (GPIO.LOW)
 
-Elle reçoit une commande en anglais (command_en) provenant d'un système de reconnaissance vocale
+ *Retourne True si la commande a été reconnue et exécutée, False sinon
 
-Elle vérifie d'abord si la commande existe (n'est pas vide)
+#### Explication de la fonction listen_and_translate()
 
-Elle compare la commande avec deux actions possibles :
+##### Rôle
+Cette fonction capture la commande vocale via le microphone, la reconnaît et la traduit en anglais.
 
-Si la commande contient "light up" → allume la LED (GPIO.HIGH)
-
-Si la commande contient "light off" → éteint la LED (GPIO.LOW)
-
-Retourne True si la commande a été reconnue et exécutée, False sinon
-
-**Fonction listen_and_translate()**
-**Rôle : **
-Capture une commande vocale via le microphone, la reconnaît et la traduit en français.
-
-**Fonctionnement :**
+##### Fonctionnement
 
 Initialisation :
 
