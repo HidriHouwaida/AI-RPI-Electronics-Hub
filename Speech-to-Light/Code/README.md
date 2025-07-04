@@ -84,61 +84,107 @@ Traduit un texte depuis n'importe quelle langue vers l'anglais et retourne le r�
   
 #### Explication de la fonction process_command(command_en)
 
+```python
+
+def process_command(command_en):
+    """Traite la commande traduite en anglais"""
+    if not command_en:
+        return False
+    
+    print(f"Commande traduite: {command_en}")
+    
+    if "light up" in command_en :
+        GPIO.output(LED_PIN, GPIO.HIGH)
+        print("Led On ")
+        return True
+    elif "light off" in command_en :
+        GPIO.output(LED_PIN, GPIO.LOW)
+        print("LED Off")
+        return True
+    
+    return False                               
+
+```
 ##### Rôle
 Cette fonction contrôle le LED en fonction de la  commande vocale traduite en anglais.
 
 ##### Fonctionnement
 
- *Elle reçoit la commande en anglais (command_en) 
+ * Elle reçoit la commande en anglais (command_en) 
 
- *Elle vérifie d'abord si la commande existe (n'est pas vide)
+ * Elle vérifie d'abord si la commande existe (n'est pas vide)
 
- *Elle compare la commande avec deux actions possibles :
+ * Elle compare la commande avec deux actions possibles :
 
-   *Si la commande contient "light up" → allume la LED (GPIO.HIGH)
+   * Si la commande contient "light up" → allume la LED (GPIO.HIGH)
 
-   *Si la commande contient "light off" → éteint la LED (GPIO.LOW)
+   * Si la commande contient "light off" → éteint la LED (GPIO.LOW)
 
- *Retourne True si la commande a été reconnue et exécutée, False sinon
+ * Retourne True si la commande a été reconnue et exécutée, False sinon
 
 #### Explication de la fonction listen_and_translate()
+
+```python
+
+def listen_and_translate():
+    """Ecoute, reconnait et traduit la commande vocale"""
+    with sr.Microphone() as source:
+        print("Dites 'allumer' ou 'eteindre' dans votre langue...")
+        recognizer.adjust_for_ambient_noise(source)
+        audio = recognizer.listen(source, timeout=5)
+        
+        try:
+            text = recognizer.recognize_google(audio, language=None)
+            print(f"Vous avez dit: {text}")
+            return translate_to_french(text)
+            
+        except sr.UnknownValueError:
+            print("Je n'ai pas compris l'audio")
+        except sr.RequestError as e:
+            print(f"Erreur du service de reconnaissance; {e}")
+        except Exception as e:
+            print(f"Erreur inattendue: {e}")
+        
+        return None                             
+
+```
 
 ##### Rôle
 Cette fonction capture la commande vocale via le microphone, la reconnaît et la traduit en anglais.
 
 ##### Fonctionnement
 
-Initialisation :
+ * Initialisation :
 
-Ouvre le microphone comme source audio
+   * Ouvre le microphone comme source audio
 
-Affiche une invite pour l'utilisateur
+   * Affiche une invite pour l'utilisateur
 
-Traitement audio :
+ * Traitement audio :
 
-Ajuste le niveau du bruit ambiant
+   * Ajuste le niveau du bruit ambiant
 
-Écoute l'entrée microphone avec un timeout de 5 secondes
+   * Écoute l'entrée microphone avec un timeout de 5 secondes
 
-Reconnaissance vocale :
+ * Reconnaissance vocale :
 
-Utilise l'API Google Speech Recognition
+   * Utilise l'API Google Speech Recognition
 
-Accepte toutes les langues (language=None)
+   * Accepte toutes les langues (language=None)
 
-Affiche le texte reconnu
+   * Affiche le texte reconnu
 
-Traduction :
+ * Traduction :
 
-Envoie le texte à la fonction translate_to_french()
+   * Envoie le texte à la fonction translate_to_anglais()
 
-Retourne le résultat traduit
-Gestion d'erreurs :
+   * Retourne le résultat traduit
+ * Gestion d'erreurs :
 
-Commande incomprise → Message "Je n'ai pas compris"
+  * Commande incomprise → Message "Je n'ai pas compris"
 
-Erreur API → Affiche le détail technique
+  * Erreur API → Affiche le détail technique
 
-Erreur générale → Message d'erreur inattendue
+  * Erreur générale → Message d'erreur inattendue
 ```
 
