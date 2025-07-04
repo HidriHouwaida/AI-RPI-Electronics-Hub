@@ -1,4 +1,4 @@
-# Explication du Code - LED Clignotante
+# Explication du Code 
 
 ## Fichier : `basic_blink_led.py`
 
