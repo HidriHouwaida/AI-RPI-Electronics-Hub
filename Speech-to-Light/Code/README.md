@@ -60,11 +60,9 @@ Traduit un texte depuis n'importe quelle langue vers l'anglais et retourne le r�
 
 ##### Fonctionnement 
 
-Utilise le service Google Translate via la bibliothèque googletrans
-
-Prend en entrée un texte (text) dans n'importe quelle langue
-
-Tente de le traduire en anglais (dest='en')
+* Utilise le service Google Translate via la bibliothèque googletrans  
+* Prend en entrée un texte (`text`) dans n'importe quelle langue  
+* Tente de le traduire en anglais (`dest='en'`)  
 
 En cas de succès :
 
