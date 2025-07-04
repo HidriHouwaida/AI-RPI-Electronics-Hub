@@ -55,6 +55,19 @@ import time                      # pour les pauses
 ```
 #### Explication de la fonction translate_to_anglais(text)
 
+```python
+
+def translate_to_anglais(text):
+    """Traduit le texte en anglais """
+    try:
+        translated = translator.translate(text, dest='en')  
+        return translated.text.lower()                     
+    except Exception as e:
+        print(f"Erreur de traduction: {e}")
+        return text.lower()                                
+
+```
+
 ##### Rôle 
 Traduit un texte depuis n'importe quelle langue vers l'anglais et retourne le résultat en minuscules.
 
