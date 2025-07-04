@@ -52,13 +52,13 @@ import speech_recognition as sr  # pour la conversion de la parole (voix) en tex
 import RPi.GPIO as GPIO          # Pour contrôler les GPIO
 from googletrans import Translator # pour la traduction automatique de texte
 import time                      # pour les pauses
-'''
+```
 #### Explication de la fonction translate_to_anglais(text)
 
-**Rôle :**
+##### Rôle 
 Traduit un texte depuis n'importe quelle langue vers l'anglais et retourne le résultat en minuscules.
 
-**Fonctionnement :**
+##### Fonctionnement 
 
 Utilise le service Google Translate via la bibliothèque googletrans
 
