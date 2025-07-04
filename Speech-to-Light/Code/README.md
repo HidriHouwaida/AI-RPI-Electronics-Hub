@@ -181,10 +181,10 @@ Cette fonction capture la commande vocale via le microphone, la reconnaît et la
    * Retourne le résultat traduit
  * Gestion d'erreurs :
 
-  * Commande incomprise → Message "Je n'ai pas compris"
+   * Commande incomprise → Message "Je n'ai pas compris"
 
-  * Erreur API → Affiche le détail technique
+   * Erreur API → Affiche le détail technique
 
-  * Erreur générale → Message d'erreur inattendue
+   * Erreur générale → Message d'erreur inattendue
 ```
 
