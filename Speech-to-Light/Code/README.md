@@ -186,5 +186,3 @@ Cette fonction capture la commande vocale via le microphone, la reconnaît et la
    * Erreur API → Affiche le détail technique
 
    * Erreur générale → Message d'erreur inattendue
-```
-
