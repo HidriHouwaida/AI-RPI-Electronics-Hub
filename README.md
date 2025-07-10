@@ -1,5 +1,5 @@
 # AI-RPI-Electronics-Hub
-Développement des solutions intelligentes intégrant IA, Raspberry Pi et électronique embarquée
+Développement des solutions intelligentes intégrant IA, Raspberry Pi et électronique embarquée <br>
 Ce dépôt rassemble des projets techniques combinant :
 
 🤖 Intelligence Artificielle (Computer Vision, NLP)
