@@ -1,9 +1,8 @@
 # AI-RPI-Electronics-Hub
-Développement des solutions intelligentes intégrant IA, Raspberry Pi et électronique embarquée <br>
-Ce dépôt rassemble des projets techniques combinant :
+Development of intelligent solutions integrating AI, Raspberry Pi, and embedded electronics.
 
-🤖 Intelligence Artificielle (Computer Vision, NLP)
+This repository brings together technical projects combining:
 
-🛠️ Prototypage embarqué (Raspberry Pi, capteurs, actionneurs)
-
-⚡ Systèmes IoT (Architectures temps réel, communication cloud/edge)
+🤖 **Artificial Intelligence** (Computer Vision, NLP)
+🛠️ **Embedded Prototyping** (Raspberry Pi, sensors, actuators)
+⚡ **IoT Systems** (Real-time architectures, cloud/edge communication)
